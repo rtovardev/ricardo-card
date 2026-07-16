@@ -485,11 +485,11 @@
     }
     document.querySelectorAll(".lang button").forEach(btn => btn.addEventListener("click", () => applyLang(btn.dataset.lang)));
 
+    // ES es el idioma por defecto del negocio (vendemos al mercado hispano). Solo cambiamos a EN si el usuario lo eligió explícitamente antes.
     let initial = "es";
     try {
       const saved = localStorage.getItem("card-lang");
-      if (saved === "es" || saved === "en") initial = saved;
-      else if ((navigator.language || "").toLowerCase().startsWith("en")) initial = "en";
+      if (saved === "en") initial = "en";
     } catch (e) {}
     applyLang(initial);
 
